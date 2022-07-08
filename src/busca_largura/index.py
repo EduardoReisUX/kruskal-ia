@@ -1,22 +1,21 @@
-visited: list[int] = []     # Lista para acompanhar os nós visitados.
-queue = []                  # Inicia uma fila
+queue = []    # Inicia uma fila
 
 # Realizar busca em largura
-def bfs(visited: list[int], graph: dict[list[int]], node: int = 0):
+def bfs(limit: int, graph: dict[list[int]], node: int = 0):
+  count = 1
   result = []
-  visited.append(node)
   queue.append(node)
-  
-  print("Resultado da busca em largura (ordem dos nós percorridos):", end="\t")
 
-  while queue:
+  while queue and count < limit:
     s = queue.pop(0)
+    count = count + 1
     result.append(s)
 
     for neighbour in graph[s]:
-      if neighbour not in visited:
-        visited.append(neighbour)
-        queue.append(neighbour)
+      queue.append(neighbour)
 
-  print(result)
+  if count >= limit:
+    print("Limite de buscas atingido.")
+    return result
+  
   return result

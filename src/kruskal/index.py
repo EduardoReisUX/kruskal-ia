@@ -8,6 +8,19 @@ class Graph:
     def add_edge(self, node_1: int, node_2: int, weight: int):
         self.graph.append([node_1, node_2, weight])
 
+    def get_graph(self, print_graph = False):
+        graph_result = []
+        
+        for node_1, node_2, weight in self.graph:
+                graph_result.append([node_1, node_2, weight])
+
+        if print_graph:
+            print("Grafo:")
+            for node_1, node_2, weight in graph_result:
+                print(f"{node_1} - {node_2}: {weight}")
+
+        return graph_result
+
     # Search function
 
     def find(self, parent: list[int], index: int):
@@ -29,7 +42,7 @@ class Graph:
             rank[node_x_root] += 1
 
     #  Executando algoritmo de Kruskal
-    def kruskal_algo(self):
+    def kruskal_algo(self, print_result = False):
         result = []
         parent = []
         rank = []
@@ -52,28 +65,9 @@ class Graph:
                 result.append([node_1, node_2, weight])
                 self.apply_union(parent, rank, x, y)
 
-        for node_1, node_2, weight in result:
-            print(f"{node_1} - {node_2}: {weight}")
-        
+        if print_result:
+            print("Resultado do algoritmo de Kruskal (árvore mínima): \n{nó_1} - {nó_2}: {peso}")
+            for node_1, node_2, weight in result:
+                print(f"{node_1} - {node_2}: {weight}")
+            
         return result
-
-
-""" g = Graph(6)            # grafo de 6 vértices [0, .., 5]
-
-g.add_edge(0, 1, 4)     # add aresta nos vértices 0 e 1 de valor 4
-g.add_edge(0, 2, 4)     # add aresta nos vértices 0 e 2 de valor 4
-g.add_edge(1, 2, 2)     # ...
-g.add_edge(1, 0, 4)
-g.add_edge(2, 0, 4)
-g.add_edge(2, 1, 2)
-g.add_edge(2, 3, 3)
-g.add_edge(2, 5, 2)
-g.add_edge(2, 4, 4)
-g.add_edge(3, 2, 3)
-g.add_edge(3, 4, 3)
-g.add_edge(4, 2, 4)
-g.add_edge(4, 3, 3)
-g.add_edge(5, 2, 2)
-g.add_edge(5, 4, 3)
-
-g.kruskal_algo()        # Executar algoritmo de kruskal """
