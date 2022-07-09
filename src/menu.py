@@ -18,28 +18,24 @@ def menu(graph: Graph, limit: int):
         clear()
 
         if op == "1":
-            dados_array = graph.get_graph(print_graph=True)[:]    
+            dados_array = graph.get_graph(print_graph=True)    
             dados_dict = convert(dados_array, print_results=False)
 
             print("\nResultado da busca em largura (ordem dos nós percorridos):")
-            result_bfs = (bfs(limit, dados_dict, 0))[:]
-            print(result_bfs)
+            print(bfs(limit, dados_dict, 0))
 
             print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
-            result_dfs = (dfs(limit, dados_dict, 0))[:]
-            print(result_dfs)
+            print(dfs(limit, dados_dict, 0))
 
         elif op == "2":
-            dados_array_kruskal = graph.kruskal_algo(print_result=True)[:]        # Executa algoritmo de kruskal
+            dados_array_kruskal = graph.kruskal_algo(print_result=True)        # Executa algoritmo de kruskal
             dados_dict_kruskal = convert(dados_array_kruskal, print_results=False)
 
             print("\nResultado da busca em largura (ordem dos nós percorridos):")
-            result_kruskal_bfs = (bfs(limit, dados_dict_kruskal, 0))[:]
-            print(result_kruskal_bfs)
+            print(bfs(limit, dados_dict_kruskal, 0))
 
             print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
-            result_kruskal_dfs = (dfs(limit, dados_dict_kruskal, 0))[:]
-            print(result_kruskal_dfs)
+            print(dfs(limit, dados_dict_kruskal, 0))
         
         print("\nMenu")
         print("1 - Executar buscas sem Kruskal ")

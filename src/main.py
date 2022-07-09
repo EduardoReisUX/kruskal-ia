@@ -25,29 +25,7 @@ def main():
     
     limit = 50      # limite de até quantos nós as buscas podem percorrer
 
-    # menu(graph, limit)
-
-    dados_array_kruskal = graph.kruskal_algo(print_result=True)        # Executa algoritmo de kruskal
-    dados_dict_kruskal = convert(dados_array_kruskal, print_results=False)
-
-    print("\nResultado da busca em largura (ordem dos nós percorridos):")
-    print(bfs(limit, dados_dict_kruskal, 0))
-    
-    print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
-    print(dfs(limit, dados_dict_kruskal, 0))
-
-    print()
-    
-    dados_array = graph.get_graph(print_graph=True)    
-    dados_dict = convert(dados_array, print_results=False)
-
-    print("\nResultado da busca em largura (ordem dos nós percorridos):")
-    print(bfs(limit, dados_dict, 0))
-    
-    print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
-    print(dfs(limit, dados_dict, 0))
-
-    print()
+    menu(graph, limit)
 
 if __name__ == '__main__':
     main()

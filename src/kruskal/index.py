@@ -15,7 +15,7 @@ class Graph:
                 graph_result.append([node_1, node_2, weight])
 
         if print_graph:
-            print("Grafo:")
+            print("Grafo: \n{nó_1} - {nó_2}: {peso}")
             for node_1, node_2, weight in graph_result:
                 print(f"{node_1} - {node_2}: {weight}")
 
