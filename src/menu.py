@@ -1,44 +1,36 @@
-import os
-import platform
-from kruskal.index import Graph
-from convert_graph_data_type import convert
-from busca_largura.index import bfs
-from busca_profundidade.index import dfs
+from auxiliar.clear_terminal import clear_terminal
+from executar.index import executar_buscas_com_kruskal, executar_buscas_sem_kruskal
+from grafos.index import get_graph_1, get_graph_2
 
-def clear():
-    if platform.system() == "Windows":
-        os.system('cls')
-    elif platform.system() == "Linux":
-        os.system('clear')
+def menu(limit: int):
+    kruskal_op = grafo_op = None
 
-def menu(graph: Graph, limit: int):
-    op = None
-
-    while op != "0":
-        clear()
-
-        if op == "1":
-            dados_array = graph.get_graph(print_graph=True)    
-            dados_dict = convert(dados_array, print_results=False)
-
-            print("\nResultado da busca em largura (ordem dos nós percorridos):")
-            print(bfs(limit, dados_dict, 0))
-
-            print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
-            print(dfs(limit, dados_dict, 0))
-
-        elif op == "2":
-            dados_array_kruskal = graph.kruskal_algo(print_result=True)        # Executa algoritmo de kruskal
-            dados_dict_kruskal = convert(dados_array_kruskal, print_results=False)
-
-            print("\nResultado da busca em largura (ordem dos nós percorridos):")
-            print(bfs(limit, dados_dict_kruskal, 0))
-
-            print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
-            print(dfs(limit, dados_dict_kruskal, 0))
+    while kruskal_op != "0":
+        clear_terminal()
         
-        print("\nMenu")
+        print("Selecione um grafo de exemplo:")
+        print("1 - Grafo 1")
+        print("2 - Grafo 2")
+        print("0 - Sair")
+
+        grafo_op = input()
+
+        if (grafo_op == "1"):
+            graph = get_graph_1()
+        elif (grafo_op == "2"):
+            graph = get_graph_2()
+        elif (grafo_op == "0" or grafo_op != "1" or grafo_op != "2"):
+            return
+
+        print("\nSelecione se deseja executar sem ou com o algoritmo de Kruskal:")
         print("1 - Executar buscas sem Kruskal ")
         print("2 - Executar buscas com Kruskal")
         print("0 - Sair")
-        op = input()
+
+        kruskal_op = input()
+        print()
+
+        if kruskal_op == "1":
+            executar_buscas_sem_kruskal(graph, limit, grafo_op)
+        elif kruskal_op == "2":
+            executar_buscas_com_kruskal(graph, limit, grafo_op)
