@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="https://python.plainenglish.io/an-introduction-to-kruskals-algorithm-theory-and-python-implementation-6117c164fbc6">
-        <img src="imgs/kruskal_banner.jpeg" alt="banner" />
+        <img src="imgs/kruskal_banner.jpeg" alt="kruskal banner" />
     </a>
 </h1>
 
@@ -14,7 +14,7 @@ Este trabalho de Inteligência Artificial tem por objetivo demonstrar a utiliza�
 
 ## Pré-requisitos
 
-- [**Python v3.4.9**](https://www.python.org/downloads/release/python-394/)
+- [**Python v3.9.4**](https://www.python.org/downloads/release/python-394/)
 - [**Git**](https://git-scm.com/)
 
 ## Como usar

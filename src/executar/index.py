@@ -20,9 +20,9 @@ def executar_buscas_com_kruskal(graph: Graph, limit: int, grafo_op: str):
     # Executa a busca em profundidade
     print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
     if grafo_op == "2":
-        print(dfs(limit, dados_dict_kruskal, 2))
+        print(dfs(limit, dados_dict_kruskal, 2, first_time=True))
     else:
-        print(dfs(limit, dados_dict_kruskal, 0))
+        print(dfs(limit, dados_dict_kruskal, 0, first_time=True))
     
     input("\nAperte Enter para voltar pro começo...")
 
@@ -40,8 +40,8 @@ def executar_buscas_sem_kruskal(graph: Graph, limit: int, grafo_op: str):
     
     print("\nResultado da busca em profundidade (ordem dos nós percorridos):")
     if grafo_op == "2":
-        print(dfs(limit, dados_dict, 1))
+        print(dfs(limit, dados_dict, 1, first_time=True))
     else:
-        print(dfs(limit, dados_dict, 0))
+        print(dfs(limit, dados_dict, 0, first_time=True))
     
     input("\nAperte Enter para voltar pro começo...")
