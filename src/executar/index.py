@@ -28,8 +28,10 @@ def executar_buscas_com_kruskal(graph: Graph, limit: int, grafo_op: str):
 
 
 def executar_buscas_sem_kruskal(graph: Graph, limit: int, grafo_op: str): 
-    dados_array = graph.get_graph(print_graph=True)    
-    
+    # Pega os dados do grafo sem executar o kruskal e os converte
+    dados_array = graph.get_graph(print_graph=True)
+
+    # Converte os dados de list[list[int]] para dict
     dados_dict = convert(dados_array, print_results=False)
 
     print("\nResultado da busca em largura (ordem dos nós percorridos):")

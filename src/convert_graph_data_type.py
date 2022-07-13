@@ -15,7 +15,7 @@ retorna {
     0: [1],
     4: [],      
     5: [],      
-} para breadth-search.py
+} para a busca em largura e profundidade
 """
 
 def convert(result: 'list[list[int]]', print_results: bool = False):

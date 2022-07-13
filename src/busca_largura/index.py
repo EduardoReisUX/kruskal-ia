@@ -1,5 +1,4 @@
 
-
 # Realizar busca em largura
 def bfs(limit: int, graph: 'dict[list[int]]', node: int = 0):
   queue = []    # Inicia uma fila

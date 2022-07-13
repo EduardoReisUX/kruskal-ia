@@ -21,21 +21,17 @@ class Graph:
             print("Grafo: \n{nó_1} - {nó_2}: {peso}")
             for node_1, node_2, weight in graph_result:
                 print(f"{node_1} - {node_2}: {weight}")
-        
-        """ print("mermaidjs:")
-        for node_1, node_2, weight in graph_result:
-            print(f"{node_1} -->|{weight}| {node_2}") """
 
         return graph_result
 
-    # Procura, dentro da lista de parents, o index.
+    # Procura, dentro da lista de parents, o index. (Union Find)
     def find(self, parent: 'list[int]', index: int):
         if parent[index] == index:
             return index
 
         return self.find(parent, parent[index])
 
-    # Une 
+    # Une os grupos em que node_x e node_y estão contidos. (Union Find)
     def apply_union(self, parent, rank, node_x, node_y):
         node_x_root = self.find(parent, node_x)
         node_y_root = self.find(parent, node_y)
@@ -76,8 +72,5 @@ class Graph:
             print("Resultado do algoritmo de Kruskal (árvore mínima): \n{nó_1} - {nó_2}: {peso}")
             for node_1, node_2, weight in result:
                 print(f"{node_1} - {node_2}: {weight}")
-            """ print("mermaidjs:")
-            for node_1, node_2, weight in result:
-                print(f"{node_1} --> |{weight}| {node_2}") """
             
         return result

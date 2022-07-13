@@ -19,7 +19,7 @@ def get_graph_1():
     graph_1.add_edge(5, 2, 2)
     graph_1.add_edge(5, 4, 3)
 
-    return graph_1
+    return graph_1              # Retorna os dados do grafo criado
 
 def get_graph_2():
     graph_2 = Graph(9)            # Cria grafo de 9 vértices
